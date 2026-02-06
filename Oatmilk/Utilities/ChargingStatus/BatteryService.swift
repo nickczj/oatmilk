@@ -13,16 +13,82 @@ final class BatteryService {
     // Charging rate tracking
     var chargingRatePerMinute: Float = 0
     var estimatedMinutesToFull: Int?
+    var estimatedWatts: Float = 0
+
+    // Session recording
+    var activeSession: ChargingSession?
+    var isRecording: Bool { activeSession != nil }
+    var savedSessions: [ChargingSession] = []
+
+    // Typical iPhone battery capacity in Wh (used for wattage estimation)
+    private let estimatedBatteryCapacityWh: Float = 14.0
 
     private var levelSamples: [(date: Date, level: Float)] = []
     private var sampleTimer: Timer?
+    private var sessionSampleTimer: Timer?
 
     init() {
+        loadSavedSessions()
         startMonitoring()
     }
 
     deinit {
         stopMonitoring()
+    }
+
+    // MARK: - Session Recording
+
+    func startRecording() {
+        guard activeSession == nil else { return }
+        let level = UIDevice.current.batteryLevel
+        guard level >= 0 else { return }
+
+        activeSession = ChargingSession(startLevel: level)
+
+        // Sample every 60 seconds during recording for the curve
+        sessionSampleTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
+            self?.recordSessionSample()
+        }
+    }
+
+    func stopRecording() {
+        guard var session = activeSession else { return }
+
+        sessionSampleTimer?.invalidate()
+        sessionSampleTimer = nil
+
+        let level = UIDevice.current.batteryLevel
+        session.finish(endLevel: level, estimatedWatts: estimatedWatts)
+
+        ChargingSessionStore.addSession(session)
+        loadSavedSessions()
+        activeSession = nil
+    }
+
+    func cancelRecording() {
+        sessionSampleTimer?.invalidate()
+        sessionSampleTimer = nil
+        activeSession = nil
+    }
+
+    func deleteSession(id: UUID) {
+        ChargingSessionStore.deleteSession(id: id)
+        loadSavedSessions()
+    }
+
+    private func loadSavedSessions() {
+        savedSessions = ChargingSessionStore.loadSessions()
+    }
+
+    private func recordSessionSample() {
+        let level = UIDevice.current.batteryLevel
+        guard level >= 0 else { return }
+        activeSession?.addDataPoint(level: level, estimatedWatts: estimatedWatts)
+
+        // Persist in-progress session
+        if let session = activeSession {
+            ChargingSessionStore.updateSession(session)
+        }
     }
 
     func startMonitoring() {
@@ -101,6 +167,7 @@ final class BatteryService {
               batteryState == .charging else {
             chargingRatePerMinute = 0
             estimatedMinutesToFull = nil
+            estimatedWatts = 0
             return
         }
 
@@ -116,8 +183,13 @@ final class BatteryService {
         if chargingRatePerMinute > 0 {
             let remaining = 1.0 - newest.level
             estimatedMinutesToFull = Int(Double(remaining) / Double(chargingRatePerMinute))
+
+            // Estimate wattage: (% per minute) × (battery capacity in Wh) × 60 = Watts
+            // Example: 1%/min on 14Wh battery = 0.01 × 14 × 60 = 8.4W
+            estimatedWatts = chargingRatePerMinute * estimatedBatteryCapacityWh * 60
         } else {
             estimatedMinutesToFull = nil
+            estimatedWatts = 0
         }
     }
 
@@ -182,5 +254,10 @@ final class BatteryService {
             return "\(h)h \(m)m"
         }
         return "\(m) min"
+    }
+
+    var estimatedWattsDescription: String {
+        guard estimatedWatts > 0 else { return "--" }
+        return String(format: "%.1fW", estimatedWatts)
     }
 }

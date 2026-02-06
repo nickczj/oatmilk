@@ -17,6 +17,8 @@
 		A10000000000000000000026 /* ChargingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000001B /* ChargingStatusView.swift */; };
 		A10000000000000000000027 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000001C /* BatteryService.swift */; };
 		A10000000000000000000028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000001D /* Assets.xcassets */; };
+		A1000000000000000000002A /* ChargingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000029 /* ChargingSession.swift */; };
+		A1000000000000000000002C /* ChargingCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002B /* ChargingCurveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		A1000000000000000000001C /* BatteryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryService.swift; sourceTree = "<group>"; };
 		A1000000000000000000001D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1000000000000000000001E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10000000000000000000029 /* ChargingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingSession.swift; sourceTree = "<group>"; };
+		A1000000000000000000002B /* ChargingCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingCurveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 			children = (
 				A1000000000000000000001B /* ChargingStatusView.swift */,
 				A1000000000000000000001C /* BatteryService.swift */,
+				A10000000000000000000029 /* ChargingSession.swift */,
+				A1000000000000000000002B /* ChargingCurveView.swift */,
 			);
 			path = ChargingStatus;
 			sourceTree = "<group>";
@@ -189,6 +195,8 @@
 				A10000000000000000000025 /* UtilityCardView.swift in Sources */,
 				A10000000000000000000026 /* ChargingStatusView.swift in Sources */,
 				A10000000000000000000027 /* BatteryService.swift in Sources */,
+				A1000000000000000000002A /* ChargingSession.swift in Sources */,
+				A1000000000000000000002C /* ChargingCurveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
