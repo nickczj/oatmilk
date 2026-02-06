@@ -25,5 +25,13 @@ struct UtilityInfo: Identifiable, Codable, Equatable {
             category: "Measurement",
             isInstalled: false
         ),
+        UtilityInfo(
+            id: "office_tracker",
+            name: "Office Days",
+            description: "Track your required in-office days each month with calendar view and notifications when behind target.",
+            iconName: "building.2",
+            category: "Tracking",
+            isInstalled: false
+        ),
     ]
 }

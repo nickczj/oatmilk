@@ -52,6 +52,8 @@ struct DashboardView: View {
             ChargingStatusView()
         case "ruler":
             RulerView()
+        case "office_tracker":
+            OfficeTrackerView()
         default:
             Text("Utility not found")
         }

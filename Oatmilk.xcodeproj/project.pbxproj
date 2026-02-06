@@ -20,6 +20,8 @@
 		A1000000000000000000002A /* ChargingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000029 /* ChargingSession.swift */; };
 		A1000000000000000000002C /* ChargingCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002B /* ChargingCurveView.swift */; };
 		A1000000000000000000002F /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002E /* RulerView.swift */; };
+		A10000000000000000000033 /* OfficeTrackerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000031 /* OfficeTrackerService.swift */; };
+		A10000000000000000000034 /* OfficeTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000032 /* OfficeTrackerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		A10000000000000000000029 /* ChargingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingSession.swift; sourceTree = "<group>"; };
 		A1000000000000000000002B /* ChargingCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingCurveView.swift; sourceTree = "<group>"; };
 		A1000000000000000000002E /* RulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
+		A10000000000000000000031 /* OfficeTrackerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeTrackerService.swift; sourceTree = "<group>"; };
+		A10000000000000000000032 /* OfficeTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeTrackerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +109,18 @@
 			children = (
 				A10000000000000000000013 /* ChargingStatus */,
 				A1000000000000000000002D /* Ruler */,
+				A10000000000000000000030 /* Tracker */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000030 /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000031 /* OfficeTrackerService.swift */,
+				A10000000000000000000032 /* OfficeTrackerView.swift */,
+			);
+			path = Tracker;
 			sourceTree = "<group>";
 		};
 		A1000000000000000000002D /* Ruler */ = {
@@ -209,6 +223,8 @@
 				A1000000000000000000002A /* ChargingSession.swift in Sources */,
 				A1000000000000000000002C /* ChargingCurveView.swift in Sources */,
 				A1000000000000000000002F /* RulerView.swift in Sources */,
+				A10000000000000000000033 /* OfficeTrackerService.swift in Sources */,
+				A10000000000000000000034 /* OfficeTrackerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
