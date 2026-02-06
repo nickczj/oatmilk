@@ -17,5 +17,13 @@ struct UtilityInfo: Identifiable, Codable, Equatable {
             category: "Battery",
             isInstalled: false
         ),
+        UtilityInfo(
+            id: "ruler",
+            name: "Ruler",
+            description: "Use your iPhone as a physical ruler. Measure objects in centimeters or inches with marker points.",
+            iconName: "ruler",
+            category: "Measurement",
+            isInstalled: false
+        ),
     ]
 }

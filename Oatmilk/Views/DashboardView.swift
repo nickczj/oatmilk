@@ -50,6 +50,8 @@ struct DashboardView: View {
         switch utility.id {
         case "charging_status":
             ChargingStatusView()
+        case "ruler":
+            RulerView()
         default:
             Text("Utility not found")
         }

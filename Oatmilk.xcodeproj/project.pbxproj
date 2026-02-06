@@ -19,6 +19,7 @@
 		A10000000000000000000028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000001D /* Assets.xcassets */; };
 		A1000000000000000000002A /* ChargingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000029 /* ChargingSession.swift */; };
 		A1000000000000000000002C /* ChargingCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002B /* ChargingCurveView.swift */; };
+		A1000000000000000000002F /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000002E /* RulerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A1000000000000000000001E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A10000000000000000000029 /* ChargingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingSession.swift; sourceTree = "<group>"; };
 		A1000000000000000000002B /* ChargingCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingCurveView.swift; sourceTree = "<group>"; };
+		A1000000000000000000002E /* RulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +104,17 @@
 			isa = PBXGroup;
 			children = (
 				A10000000000000000000013 /* ChargingStatus */,
+				A1000000000000000000002D /* Ruler */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A1000000000000000000002D /* Ruler */ = {
+			isa = PBXGroup;
+			children = (
+				A1000000000000000000002E /* RulerView.swift */,
+			);
+			path = Ruler;
 			sourceTree = "<group>";
 		};
 		A10000000000000000000013 /* ChargingStatus */ = {
@@ -197,6 +208,7 @@
 				A10000000000000000000027 /* BatteryService.swift in Sources */,
 				A1000000000000000000002A /* ChargingSession.swift in Sources */,
 				A1000000000000000000002C /* ChargingCurveView.swift in Sources */,
+				A1000000000000000000002F /* RulerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
